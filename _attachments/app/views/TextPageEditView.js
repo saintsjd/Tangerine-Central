@@ -1,6 +1,6 @@
-var SubtestView = Backbone.View.extend({
+var TextPageEditView = Backbone.View.extend({
   el: $("body"),
-  template: loadTemplate("editor.template.html"),
+  template: loadTemplate("TextPageEdit.template.html"),
   initialize: function (){
     this.model.view = this;
   },

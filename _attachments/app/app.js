@@ -2,6 +2,6 @@
 subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.ReadingComprehensionInstructions"});
 subtest.fetch({
   success: function(model){
-    (new SubtestView({model: model})).render();
+    (new TextPageEditView({model: model})).render();
   }
 })
