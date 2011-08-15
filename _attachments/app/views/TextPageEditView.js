@@ -1,5 +1,5 @@
 var TextPageEditView = Backbone.View.extend({
-  el: $("body"),
+  el: $("#app"),
   template: loadTemplate("TextPageEdit.template.html"),
   initialize: function (){
     this.model.view = this;

@@ -1,5 +1,5 @@
 var SchoolPageEditView = Backbone.View.extend({
-  el: $("body"),
+  el: $("#app"),
   template: loadTemplate("SchoolPageEdit.template.html"),
   initialize: function (){
     this.model.view = this;

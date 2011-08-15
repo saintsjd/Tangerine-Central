@@ -1,5 +1,5 @@
 var ToggleGridWithTimerEditView = Backbone.View.extend({
-  el: $("body"),
+  el: $("#app"),
   template: loadTemplate("ToggleGridWithTimerEdit.template.html"),
   initialize: function (){
     this.model.view = this;
