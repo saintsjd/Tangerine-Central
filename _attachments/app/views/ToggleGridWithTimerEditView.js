@@ -1,5 +1,5 @@
 var ToggleGridWithTimerEditView = Backbone.View.extend({
-  el: $("#app"),
+  el: $("#edit-pane"),
   template: loadTemplate("ToggleGridWithTimerEdit.template.html"),
   initialize: function (){
     this.model.view = this;
@@ -12,7 +12,7 @@ var ToggleGridWithTimerEditView = Backbone.View.extend({
   
   save: function() {
   	var letters = this.$("textarea").val().split(" ");
-    this.model.set({"letters": letters}).save();
+    this.model.set({"letters": letters} ).save();
   },
 
   sort: function() {

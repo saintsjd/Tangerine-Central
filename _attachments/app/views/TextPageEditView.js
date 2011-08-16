@@ -1,9 +1,6 @@
 var TextPageEditView = Backbone.View.extend({
-  el: $("#app"),
+  el: $("#edit-pane"),
   template: loadTemplate("TextPageEdit.template.html"),
-  initialize: function (){
-    this.model.view = this;
-  },
   events: {
     "click button:contains('Save')" : "save",
   },

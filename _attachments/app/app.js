@@ -1,80 +1,61 @@
 /**
- * Global reference to the one subtest we are testing... we can change this later, but works well for the moment
- */
-window.SubtestModel = Backbone.Model.extend({
-	url: "/subtest",
-});
-
-/**
  * Initialize the application and switch between tests
  */
 window.AppView = Backbone.View.extend({
 	
-	el: $("#app"),
+	el: $("body"),
 	
 	initialize: function(){
-		//Start with a TextPage
-		this.model = new SubtestModel({_id: "Assessment.The Gambia EGRA May 2011.ReadingComprehensionInstructions"});
-
-		this.model.bind('change', this.changeSubtest, this );
-	
-		this.model.fetch();
+		this.model.bind('change', this.updateSubtestGui, this );
+		this.editView = new TextPageEditView({model: this.model });
 	},
 	
+	events: {
+      "click .switch-test":  "switchSubtest",
+    },
+
 	// Based on the PageType of the subtest model, change the GUI for editing
-	changeSubtest: function(){
+	updateSubtestGui: function(){
+	    console.log(this.model.get("_rev"));
+
+		//MUY IMPORTANTE!! - we have to undelagate all events to switch views
+	    this.editView.events = {};
+	    this.editView.delegateEvents();
 	  	switch( this.model.get("pageType") ) {
 			case 'TextPage':
-			(new TextPageEditView({model: this.model })).render();
+			this.editView = new TextPageEditView({model: this.model });
 			break;
 
 			case 'ToggleGridWithTimer':
-		    (new ToggleGridWithTimerEditView({model: this.model })).render();
+			this.editView = new ToggleGridWithTimerEditView({model: this.model });
 			break;
 
-			case 'SchoolPage':
-		    (new SchoolPageEditView({model: this.model })).render();
-			break;
 	  	}
+		this.editView.render();
+	},
+		
+	switchSubtest: function(e){
+		this.model.clear({silent: true});
+		switch( $( e.target ).attr("id") ) {
+			case 'TextPage':
+				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.ReadingComprehensionInstructions"}, {silent: true} );
+			break;
+
+			case 'ToggleGridWithTimer':
+				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.Letters"}, {silent: true} ); //ToggleGridWithTimer
+			break;
+
+		//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.School"}); //SchoolPage
+		//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.PupilContextInterview"}); //Interview
+		}
+
+		this.model.fetch();
+		return false;
 	},
 	
 });
 
 $(function(){
-	window.App = new AppView;	
+	window.subtest = new Subtest();
+	window.App = new AppView({ model: window.subtest });
 });
-
-
-// Set the _id and then call fetch to use the backbone connector to retrieve it from couch
-// Uncomment different lines below to test different page types
-
-//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.ReadingComprehensionInstructions"}); //TextPage
-//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.Letters"}); //ToggleGridWithTimer
-//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.School"}); //SchoolPage
-/*subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.PupilContextInterview"}); //Interview
-
-
-subtest.fetch({
-  success: function(model){
-  	
-  	switch( model.get("pageType") ) {
-		case 'TextPage':
-		    (new TextPageEditView({model: model})).render();
-		break;
-
-		case 'ToggleGridWithTimer':
-		    (new ToggleGridWithTimerEditView({model: model})).render();
-		break;
-
-		case 'SchoolPage':
-		    (new SchoolPageEditView({model: model})).render();
-		break;
-
-		case 'Interview':
-		    (new InterviewEditView({model: model})).render();
-		break;
-  		
-  	}
-  }
-})
-*/
