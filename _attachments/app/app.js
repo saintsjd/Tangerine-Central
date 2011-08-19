@@ -40,6 +40,10 @@ window.AppView = Backbone.View.extend({
 			this.editView = new ConsentPageEditView({model: this.model });
 			break;
 
+			case 'StudentInformationPage':
+			this.editView = new StudentInformationPageEditView({model: this.model });
+			break;
+
 	  	}
 		this.editView.render();
 	},
@@ -61,6 +65,10 @@ window.AppView = Backbone.View.extend({
 
 			case 'ConsentPage':
 				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.StudentConsent"}, {silent: true} ); //ToggleGridWithTimer
+			break;
+
+			case 'StudentInformationPage':
+				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.StudentInformation"}, {silent: true} ); //ToggleGridWithTimer
 			break;
 
 		//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.School"}); //SchoolPage
