@@ -21,6 +21,8 @@ window.AppView = Backbone.View.extend({
 		//MUY IMPORTANTE!! - we have to undelagate all events to switch views
 	    this.editView.events = {};
 	    this.editView.delegateEvents();
+	    //this.editView.remove();
+
 	  	switch( this.model.get("pageType") ) {
 			case 'TextPage':
 			this.editView = new TextPageEditView({model: this.model });
@@ -28,6 +30,10 @@ window.AppView = Backbone.View.extend({
 
 			case 'ToggleGridWithTimer':
 			this.editView = new ToggleGridWithTimerEditView({model: this.model });
+			break;
+
+			case 'SchoolPage':
+			this.editView = new SchoolPageEditView({model: this.model });
 			break;
 
 	  	}
@@ -43,6 +49,10 @@ window.AppView = Backbone.View.extend({
 
 			case 'ToggleGridWithTimer':
 				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.Letters"}, {silent: true} ); //ToggleGridWithTimer
+			break;
+
+			case 'SchoolPage':
+				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.School"}, {silent: true} ); //ToggleGridWithTimer
 			break;
 
 		//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.School"}); //SchoolPage

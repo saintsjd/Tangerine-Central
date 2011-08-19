@@ -1,9 +1,6 @@
 var SchoolPageEditView = Backbone.View.extend({
-  el: $("#app"),
+  el: $("#edit-pane"),
   template: loadTemplate("SchoolPageEdit.template.html"),
-  initialize: function (){
-    this.model.view = this;
-  },
   events: {
     "click button:contains('Save')" : "save",
   },
@@ -22,7 +19,7 @@ var SchoolPageEditView = Backbone.View.extend({
   		if( school.name != "" )
 	  		schools.push( school );
   	});
-   this.model.set({"schools": schools }).save();
+    this.model.set({"schools": schools }).save();
   },
   render: function(){
     $(this.el).html(this.template(this.model.toJSON()));
