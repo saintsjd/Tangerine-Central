@@ -48,6 +48,10 @@ window.AppView = Backbone.View.extend({
 			this.editView = new PhonemePageEditView({model: this.model });
 			break;
 
+			case 'Interview':
+			this.editView = new InterviewEditView({model: this.model });
+			break;
+
 	  	}
 		this.editView.render();
 	},
@@ -79,6 +83,9 @@ window.AppView = Backbone.View.extend({
 				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.Phonemes"}, {silent: true} ); //ToggleGridWithTimer
 			break;
 
+			case 'Interview':
+				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.PupilContextInterview"}, {silent: true} ); //ToggleGridWithTimer
+			break;
 		}
 
 		this.model.fetch();
