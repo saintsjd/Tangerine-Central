@@ -44,6 +44,10 @@ window.AppView = Backbone.View.extend({
 			this.editView = new StudentInformationPageEditView({model: this.model });
 			break;
 
+			case 'PhonemePage':
+			this.editView = new PhonemePageEditView({model: this.model });
+			break;
+
 	  	}
 		this.editView.render();
 	},
@@ -71,8 +75,10 @@ window.AppView = Backbone.View.extend({
 				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.StudentInformation"}, {silent: true} ); //ToggleGridWithTimer
 			break;
 
-		//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.School"}); //SchoolPage
-		//subtest = new Subtest({_id: "Assessment.The Gambia EGRA May 2011.PupilContextInterview"}); //Interview
+			case 'PhonemePage':
+				this.model.set({ _id: "Assessment.The Gambia EGRA May 2011.Phonemes"}, {silent: true} ); //ToggleGridWithTimer
+			break;
+
 		}
 
 		this.model.fetch();
