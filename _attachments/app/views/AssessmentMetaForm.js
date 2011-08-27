@@ -5,6 +5,30 @@ var AssessmentMetaForm = Backbone.View.extend({
   initialize: function(){
 	this.model.bind("change", this.render, this );
   },
+  
+  events : {
+  	"click #save-assessment-meta-button" : "save",
+  },
+  
+  save : function() {
+  	//validate the form
+  	var nameField = this.$("input#name")
+	var errorBar = this.$(".error-bar");
+
+  	nameField.parent().removeClass("error");
+	errorBar.hide();
+
+  	var name = this.$("input#name").val();
+  	
+  	if( !name ) {
+  		this.$("input#name").parent().addClass("error");
+  		errorBar.html("Name field is required");
+  		errorBar.fadeIn("slow");
+  	}
+  	
+  	
+  	//save the assessment
+  },
 
   render: function() {
     $(this.el).html( this.template(this.model.toJSON()) ).trigger( "create" );

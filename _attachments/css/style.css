@@ -211,7 +211,16 @@ td { vertical-align: top; }
    Author: 
    ========================================================================== */
 
+.error-bar { 
+  display: none; 
+  background-color:#FF0000;  
+  font-weight:bold;  
+}
 
+.error  {  
+  color:#FF0000;  
+  font-weight:bold;  
+}  
 
 
 
