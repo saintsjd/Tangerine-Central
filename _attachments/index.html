@@ -37,36 +37,39 @@
 
 <body>
 
-  <div id="container">
-    <header>
-	   	<h1>Tangerine Central</h1>
-    </header>
-    <div id="main" role="main">
-  	<h2>Tests</h2>
-		<div data-role="page"> 
-			<div data-role="header">
-				<h1>Home</h1>
-			</div> 
-			<div data-role="content">
-				<a href="#" data-role="button" data-icon="plus">Create new EGRA</a>
-				
-				<h2>My EGRAs</h2>
-				<ul data-role="listview" data-inset="true">
-					<li><a href="acura.html">Acura</a></li>
-					<li><a href="audi.html">Audi</a></li>
-					<li><a href="bmw.html">BMW</a></li>
-				</ul>
-			</div> 
-			<div data-role="footer">
-				<h2>footer</h2>
-			</div> 
-		</div>
+	<div data-role="page" id="home"> 
+		<div data-role="header">
+			<h1>Home</h1>
+		</div> 
+		<div data-role="content">
+			<a href="#" data-role="button" data-icon="plus" id="new-egra-button">Create new EGRA</a>
+			
+			<h2>My EGRAs</h2>
+			<ul data-role="listview" data-inset="true">
+				<li><a href="acura.html">Acura</a></li>
+				<li><a href="audi.html">Audi</a></li>
+				<li><a href="bmw.html">BMW</a></li>
+			</ul>
+		</div> 
+		<div data-role="footer">
+			<h2>footer</h2>
+		</div> 
+	</div>
 
-    </div>
-    <footer>
 
-    </footer>
-  </div> <!--! end of #container -->
+
+	<div data-role="page" id="assessment-meta-form"> 
+		<div data-role="header">
+			<h1>Assessment Meta</h1>
+		</div> 
+		<div data-role="content">
+
+		</div> 
+		<div data-role="footer">
+			<h2>footer</h2>
+		</div> 
+	</div>
+
 
 
   <!-- JavaScript at the bottom for fast page loading -->
@@ -78,6 +81,14 @@
 
   <!-- scripts concatenated and minified via ant build script-->
   <script src="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>
+  <script type="text/javascript" src="js/libs/underscore-min.js"></script>
+  <script type="text/javascript" src="js/libs/backbone-min.js"></script>
+  <script type="text/javascript" src="js/libs/jquery.couch.js"></script>
+  <script type="text/javascript" src="js/libs/backbone-couchdb.js"></script>
+  <script type="text/javascript" src="js/libs/handlebars.js"></script>
+  <script type="text/javascript" src="app/config.js"></script>
+  <script type="text/javascript" src="app/models/Assessment.js"></script>
+  <script type="text/javascript" src="app/views/AssessmentMetaForm.js"></script>
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
   <!-- end scripts-->
