@@ -23,6 +23,7 @@
 
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
   <link rel="stylesheet" href="css/style.css">
   <!-- end CSS-->
 
@@ -42,18 +43,24 @@
     </header>
     <div id="main" role="main">
   	<h2>Tests</h2>
-	  	<ul>
-	  		<li><a href="#" id="TextPage" class="switch-test">TextPage Edit</a></li>
-	  		<li><a href="#" id="ToggleGridWithTimer" class="switch-test">ToggleGridWithTimer Edit</a></li>
-	  		<li><a href="#" id="SchoolPage" class="switch-test">SchoolPage Edit</a></li>
-	  		<li><a href="#" id="ConsentPage" class="switch-test">ConsentPage Edit</a></li>
-	  		<li><a href="#" id="StudentInformationPage" class="switch-test">StudentInformationPage Edit</a></li>
-	  		<li><a href="#" id="PhonemePage" class="switch-test">PhonemePage Edit</a></li>
-	  		<li><a href="#" id="Interview" class="switch-test">Interview Edit</a></li>
-	  		<li>Others here...</li>
-	  	</ul>
-	  	
-	  	<div id="edit-pane"></div>
+		<div data-role="page"> 
+			<div data-role="header">
+				<h1>Home</h1>
+			</div> 
+			<div data-role="content">
+				<a href="#" data-role="button" data-icon="plus">Create new EGRA</a>
+				
+				<h2>My EGRAs</h2>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="acura.html">Acura</a></li>
+					<li><a href="audi.html">Audi</a></li>
+					<li><a href="bmw.html">BMW</a></li>
+				</ul>
+			</div> 
+			<div data-role="footer">
+				<h2>footer</h2>
+			</div> 
+		</div>
 
     </div>
     <footer>
@@ -70,23 +77,9 @@
 
 
   <!-- scripts concatenated and minified via ant build script-->
+  <script src="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
-  <script type="text/javascript" src="js/libs/underscore-min.js"></script>
-  <script type="text/javascript" src="js/libs/backbone-min.js"></script>
-  <script type="text/javascript" src="js/libs/jquery.couch.js"></script>
-  <script type="text/javascript" src="js/libs/backbone-couchdb.js"></script>
-  <script type="text/javascript" src="js/libs/handlebars.js"></script>
-  <script type="text/javascript" src="app/config.js"></script>
-  <script type="text/javascript" src="app/models/Subtest.js"></script>
-  <script type="text/javascript" src="app/views/TextPageEditView.js"></script>
-  <script type="text/javascript" src="app/views/ToggleGridWithTimerEditView.js"></script>
-  <script type="text/javascript" src="app/views/SchoolPageEditView.js"></script>
-  <script type="text/javascript" src="app/views/ConsentPageEditView.js"></script>
-  <script type="text/javascript" src="app/views/StudentInformationPageEditView.js"></script>
-  <script type="text/javascript" src="app/views/PhonemePageEditView.js"></script>
-  <script type="text/javascript" src="app/views/InterviewEditView.js"></script>
-  <script type="text/javascript" src="app/app.js"></script>
   <!-- end scripts-->
 
 	
