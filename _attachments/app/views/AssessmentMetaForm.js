@@ -19,15 +19,16 @@ var AssessmentMetaForm = Backbone.View.extend({
 	errorBar.hide();
 
   	var name = this.$("input#name").val();
+  	var language = this.$("#language").val();
   	
   	if( !name ) {
   		this.$("input#name").parent().addClass("error");
   		errorBar.html("Name field is required");
   		errorBar.fadeIn("slow");
-  	}
-  	
-  	
+  		return false;
+  	}  	
   	//save the assessment
+  	this.model.set( { name: name, language: language } ).save({silent:true});
   },
 
   render: function() {
