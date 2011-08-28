@@ -5,10 +5,11 @@ Initialize the app
 $(function(){
 
 
-	//Models
+	//Models and Collections
 	window.assessment = new Assessment;
 	window.assessments = new AssessmentCollection;
 	
+	// Load all the assessments from the database into the collection
 	//TODO - get the hardcoded db name out of here. same with DDOC
 	$.couch.db("tangerine").view("tangerine-cloud" + "/assessment_ids", {
       success: function(result){
@@ -18,9 +19,7 @@ $(function(){
       	});
       }
     });
-	
-	console.log(window.assessments);
-	
+		
 	//Views
 	var metaform = new AssessmentMetaForm({model: window.assessment, el: $('#assessment-meta-form [data-role="content"]') });
 	var debug = new Debug( {model: window.assessment, el: $("#debug")} );
