@@ -27,8 +27,13 @@ var AssessmentMetaForm = Backbone.View.extend({
   		errorBar.fadeIn("slow");
   		return false;
   	}  	
+  	
+  	var now  = new Date();
+  	if( this.model.isNew() ) {
+  		this.model.set({ created: now }, {silent:true} );
+  	}
   	//save the assessment
-  	this.model.set( { name: name, language: language } ).save({silent:true});
+  	this.model.set({ name: name, language: language, updated: now }, {silent:true} ).save();
   },
 
   render: function() {
