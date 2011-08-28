@@ -7,24 +7,19 @@ $(function(){
 
 	//Models
 	window.assessment = new Assessment;
-	var AssessmentList = Backbone.Collection.extend({
-  		model: AssessmentMeta,
-  		
-		comparator: function(meta) {
-		  return meta.get("updated");
-		},
-	});
-	window.assessmentList = new AssessmentList;
+	window.assessments = new AssessmentCollection;
+	
+	//TODO - get the hardcoded db name out of here. same with DDOC
 	$.couch.db("tangerine").view("tangerine-cloud" + "/assessment_ids", {
       success: function(result){
       	$.each(result.rows, function(key,row){
       		var a = new AssessmentMeta( {id:row.id, updated:row.key, name: row.value} );
-      		window.assessmentList.add(a);
+      		window.assessments.add(a);
       	});
       }
     });
 	
-	console.log(window.assessmentList);
+	console.log(window.assessments);
 	
 	//Views
 	var metaform = new AssessmentMetaForm({model: window.assessment, el: $('#assessment-meta-form [data-role="content"]') });
