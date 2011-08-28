@@ -37,7 +37,6 @@ $(function(){
 	 * UI Events
 	 */
 	$("#new-egra-button").click(function(){
-		console.log( window.assessment.get("foo") );
 		//create a new blank assessment
 		window.assessment.blank();		
 		$.mobile.changePage("#assessment-meta-form");
