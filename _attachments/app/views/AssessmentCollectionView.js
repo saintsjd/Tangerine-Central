@@ -5,24 +5,22 @@ var AssessmentCollectionView = Backbone.View.extend({
 	template: loadTemplate("AssessmentMetaView.template.html"),
 
 	initialize: function() {
-      this.model.bind('change', this.render, this);
+      this.model.bind('add', this.addOne, this);
       //TODO this.model.bind('destroy', this.remove, this);
     },
 
 
 	render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+	  console.log(this.model);
+      //$(this.el).html(this.template(this.model.toJSON()));
       return this;
     },
 
-	events: {
-      "click a": "switchActiveAssessment"
-    },
-    
-    switchActiveAssessment: function() {
-    	window.assessment.set({ _id: this.model.get("id")}, {silent: true} );
-    	window.assessment.fetch();
-    	return false;
-    }
+	addOne: function(assessment) {
+		var view = new AssessmentMetaView({model: assessment});
+    	this.$(this.el).append(view.render().el);
+    	this.$(this.el).listview("refresh");
+	},
+
     
 });

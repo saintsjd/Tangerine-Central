@@ -11,7 +11,7 @@ $(function(){
 			
 	//Views
 	var metaform = new AssessmentMetaForm({model: window.assessment, el: $('#assessment-meta-form [data-role="content"]') });
-	var assessmentCollectionView = new AssessmentCollectionView;
+	var assessmentCollectionView = new AssessmentCollectionView({model:window.assessments});
 	var debug = new Debug( {model: window.assessment, el: $("#debug")} );
 	
 	//force the metaForm to render... this is for testing only
