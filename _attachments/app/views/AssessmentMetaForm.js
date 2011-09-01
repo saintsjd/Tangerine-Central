@@ -31,12 +31,22 @@ var AssessmentMetaForm = Backbone.View.extend({
   	var now  = new Date();
   	if( this.model.isNew() ) {
   		this.model.set({ created: now }, {silent:true} );
-  	}
-  	//save the assessment
-  	this.model.save({ name: name, language: language, updated: now }, {success: function(m){
-		window.assessments.add(m);  	
-  	}});
+
+	  	this.model.save({ name: name, language: language, updated: now }, {success: function(m){
+				window.assessments.add(m);  	
+	  	}});
+  	}else {
+	  	//save the assessment
+	  	this.model.save({ name: name, language: language, updated: now }, {success: function(m){
+				var temp = window.assessments.get( m.get("_id") );
+				temp.fetch();
+	  	}});
   	
+  	}
+  	
+  	//go back home for now
+  	$.mobile.changePage("#home", {reverse:true});
+
   },
 
   render: function() {

@@ -22,10 +22,8 @@ $(function(){
 	 */
 	$("#new-egra-button").click(function(){
 		//create a new blank assessment
-		window.assessment.blank();		
-		//$.mobile.changePage("#assessment-meta-form");
+		window.assessment.blank();
 	});
-
 
 	// Load all the assessments from the database into the collection
 	window.assessments.fetchAll();

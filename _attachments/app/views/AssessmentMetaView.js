@@ -12,6 +12,10 @@ var AssessmentMetaView = Backbone.View.extend({
 
 	render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
+		//remove these attrs so jqm will rerender the li 
+		$(this.el).removeAttr("data-theme");
+		$(this.el).removeAttr("class");
+
       return this;
     },
 
