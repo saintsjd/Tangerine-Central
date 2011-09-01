@@ -1,8 +1,8 @@
 var AssessmentCollection = Backbone.Collection.extend({
 	model: Assessment,
 	
-	comparator: function(meta) {
-	  return meta.get("updated");
+	comparator: function(assessment) {
+	  return assessment.get("updated");
 	},
 	
 	/**

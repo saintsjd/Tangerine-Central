@@ -18,7 +18,8 @@ var AssessmentCollectionView = Backbone.View.extend({
 
 	addOne: function(assessment) {
 		var view = new AssessmentMetaView({model: assessment});
-    	this.$(this.el).append(view.render().el);
+    	this.$(this.el).prepend(view.render().el);
+    	
     	this.$(this.el).listview("refresh");
 	},
 
