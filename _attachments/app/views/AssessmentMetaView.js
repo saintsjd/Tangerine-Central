@@ -22,7 +22,7 @@ var AssessmentMetaView = Backbone.View.extend({
     switchActiveAssessment: function() {
     	window.assessment.set({ _id: this.model.get("_id")}, {silent: true} );
     	window.assessment.fetch();
-    	return false;
+    	return true;
     }
     
 });

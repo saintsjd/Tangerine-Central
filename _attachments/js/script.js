@@ -23,7 +23,7 @@ $(function(){
 	$("#new-egra-button").click(function(){
 		//create a new blank assessment
 		window.assessment.blank();		
-		$.mobile.changePage("#assessment-meta-form");
+		//$.mobile.changePage("#assessment-meta-form");
 	});
 
 
