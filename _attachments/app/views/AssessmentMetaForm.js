@@ -45,7 +45,7 @@ var AssessmentMetaForm = Backbone.View.extend({
   	}
   	
   	//go back home for now
-  	$.mobile.changePage("#home", {reverse:true});
+  	$.mobile.changePage( "#subtest-list" );
 
   },
 
