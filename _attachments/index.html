@@ -73,10 +73,17 @@
 
 	<div data-role="page" id="subtest-list"> 
 		<div data-role="header">
-			<h1>Editing: Assessment Name</h1>
+			<h1>Editing: <span>Assessment Name</span></h1>
 		</div> 
 		<div data-role="content">
-
+			<h2>Add a subtest</h2>
+			<ul id="add-subtest" data-role="listview" data-inset="true">
+				<li><a href="#" id="text-page">Text Page</a></li>
+				<li><a href="#" id="toggle-grid-with-timmer">Toggle Grid with Timer</a></li>
+			</ul>
+			<h2>Subtests (click to edit)</h2>
+			<ul id="subtests" data-role="listview" data-inset="true">
+			</ul>
 		</div> 
 		<div data-role="footer">
 			<h2>footer</h2>
@@ -103,6 +110,7 @@
   <script type="text/javascript" src="app/views/AssessmentMetaForm.js"></script>
   <script type="text/javascript" src="app/views/AssessmentMetaView.js"></script>
   <script type="text/javascript" src="app/views/AssessmentCollectionView.js"></script>
+  <script type="text/javascript" src="app/views/SubtestListHeadingView.js"></script>
   <script type="text/javascript" src="app/views/Debug.js"></script>
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
