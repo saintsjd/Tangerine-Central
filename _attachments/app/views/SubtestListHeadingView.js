@@ -11,9 +11,6 @@ var SubtestListHeadingView = Backbone.View.extend({
 
 
 	render: function() {
-		//update the window.subtest list - we can move this to its own view eventually
-		window.subtests = new SubtestCollection;
-		window.subtests.fetchAll();
 	
       $(this.el).html(this.template(this.model.toJSON()));
 

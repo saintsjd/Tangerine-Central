@@ -5,15 +5,15 @@ var SubtestListCollectionView = Backbone.View.extend({
 	template: loadTemplate("SubtestListCollectionView.template.html"),
 
 	initialize: function() {
-	  //TODO Bummer backbone cannot listen for changes to an array of a model object
-      this.model.bind('change', this.render, this);
-      //TODO this.model.bind('destroy', this.remove, this);
+      this.model.bind('add', this.render, this);
+      this.model.bind('reset', this.render, this);
     },
 
 
 	render: function() {
       //$(this.el).html(this.template(this.model.toJSON()));
 	//console.log(this.model.get("urlPathsForPages"));
+	console.log(this.model.length);
       return this;
     },
         

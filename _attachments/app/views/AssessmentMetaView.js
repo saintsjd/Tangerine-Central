@@ -24,8 +24,13 @@ var AssessmentMetaView = Backbone.View.extend({
     },
     
     switchActiveAssessment: function() {
-    	window.assessment.set({ _id: this.model.get("_id")}, {silent: true} );
-    	window.assessment.fetch();
+    	window.assessment.set({ _id: this.model.get("_id"), urlPathsForPages: undefined }, {silent: true} );
+    	window.assessment.fetch({
+    		success:function(model){
+    			//load in the subtests
+				window.subtests.fetchAll();
+    		},
+    	});
     	return true;
     }
     

@@ -12,6 +12,9 @@ var SubtestCollection = Backbone.Collection.extend({
 		//this changes as we move through the various callbacks in this function. save a reference to the collection here
 		var thisCollection = this;
 
+		//remove all the subtests currently in the collection
+		thisCollection.reset();
+
 		_.each( window.assessment.get("urlPathsForPages"), function(subtestId) {
 			var subtest = new Subtest({_id: subtestId });
 			subtest.fetch({
@@ -20,8 +23,6 @@ var SubtestCollection = Backbone.Collection.extend({
 				},
 			});
 		});
-
-		console.log( thisCollection );					
 
 	}
 });
