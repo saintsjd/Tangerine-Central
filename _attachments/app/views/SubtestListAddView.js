@@ -29,7 +29,6 @@ var SubtestListAddView = Backbone.View.extend({
 		var subtest = new Subtest(defaults);
 		subtest.save({},{
 			success: function(m) {
-				console.log("!!!" + m.get("_id") );
 				if ( window.assessment.get("urlPathsForPages") == undefined )
 					window.assessment.set({ "urlPathsForPages": [m.get("_id")] });
 				else
