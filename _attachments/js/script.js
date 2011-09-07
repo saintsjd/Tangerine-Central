@@ -15,6 +15,7 @@ $(function(){
 	var debug = new Debug( {model: window.assessment, el: $("#debug")} );
 	var subtestListHeading = new SubtestListHeadingView({model:window.assessment});
 	var subtestListAdd = new SubtestListAddView();
+	var subtestListView = new SubtestListView({model:window.assessment});
 	
 	//force the metaForm to render... this is for testing only
 	//window.assessment.change();
