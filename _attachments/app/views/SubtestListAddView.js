@@ -30,9 +30,11 @@ var SubtestListAddView = Backbone.View.extend({
 		subtest.save({},{
 			success: function(m) {
 				console.log("!!!" + m.get("_id") );
-				//if ( window.assessment.get("urlPathsForPages") == undefined )
-				//	window.assessment.set("urlPathsForPages", [m.get("_id")]);
-				//console.log( window.assessment.get("urlPathsForPages") );
+				if ( window.assessment.get("urlPathsForPages") == undefined )
+					window.assessment.set({ "urlPathsForPages": [m.get("_id")] });
+				else
+					window.assessment.get("urlPathsForPages").push(m.get("_id"));
+				window.assessment.save();
 					
 			},
 		});
