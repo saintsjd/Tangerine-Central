@@ -5,7 +5,8 @@ var SubtestListView = Backbone.View.extend({
 	template: loadTemplate("SubtestListView.template.html"),
 
 	initialize: function() {
-      this.model.bind('change:urlPathsForPages', this.render, this);
+	  //TODO Bummer backbone cannot listen for changes to an array of a model object
+      this.model.bind('change', this.render, this);
       //TODO this.model.bind('destroy', this.remove, this);
     },
 
