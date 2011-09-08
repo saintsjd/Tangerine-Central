@@ -9,14 +9,16 @@ $(function(){
 	window.assessment = new Assessment;
 	window.assessments = new AssessmentCollection;
 	window.subtests = new SubtestCollection;
+	window.subtest = new Subtest;
 			
 	//Views
 	var metaform = new AssessmentMetaForm({model: window.assessment, el: $('#assessment-meta-form [data-role="content"]') });
 	var assessmentCollectionView = new AssessmentCollectionView({model:window.assessments});
-	var debug = new Debug( {model: window.assessment, el: $("#debug")} );
+	//var debug = new Debug( {model: window.assessment, el: $("#debug")} );
 	var subtestListHeading = new SubtestListHeadingView({model:window.assessment});
 	var subtestListAdd = new SubtestListAddView();
 	var subtestListCollectionView = new SubtestListCollectionView({model:window.subtests});
+	var subtestFormView = new SubtestFormView( {model: window.subtest} );
 	
 	//force the metaForm to render... this is for testing only
 	//window.assessment.change();
