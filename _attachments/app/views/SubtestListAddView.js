@@ -24,6 +24,14 @@ var SubtestListAddView = Backbone.View.extend({
 					"letters": [],				
 				};			
 			break;
+
+			case "school-page":
+				defaults = {
+					"pageType": "SchoolPage",
+					"schools": [],				
+				};			
+			break;
+
 		}
 		
 		var subtest = new Subtest(defaults);
