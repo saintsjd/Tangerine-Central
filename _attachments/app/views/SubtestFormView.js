@@ -44,6 +44,15 @@ var SubtestFormView = Backbone.View.extend({
   			};
     	break;
 
+    	case "PhonemePage":
+    		this.template = loadTemplate("PhonemePageEdit.template.html");
+    		this.events = {
+				"click button:contains('Save')" : "savePhonemePage",
+				"click button:contains('Add')" : "addPhonemePage",
+			};
+    	break;
+
+
     }
 
 	this.delegateEvents();
@@ -132,6 +141,28 @@ var SubtestFormView = Backbone.View.extend({
  	this.$("ol").append(template());
   },
  
- 
+  savePhonemePage: function() {
+  	var words = new Array();
+ 	this.$("ol li").each(function( index, value ){
+ 		var word = {};
+ 		word.word = $(value).find('input[name="word"]').val();
+ 		word["number-of-sounds"] = $(value).find('input[name="number-of-sounds"]').val();
+		word.phonemes = new Array();
+		
+		$.each( $(value).find("textarea").val().split("\n"), function( idx, option ) { 
+			if( option != "" )
+		  		word.phonemes.push(option);
+  		});		
+
+		if( word.word != "" )
+			words.push(word);
+ 	});
+	this.model.set({"words":  words } ).save();
+  },
+
+  addPhonemePage: function() {
+ 	var template = loadTemplate("NewPhonemeForm.template.html");
+ 	this.$("ol").append(template());
+  }, 
            
 });

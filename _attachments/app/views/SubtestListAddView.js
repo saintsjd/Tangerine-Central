@@ -46,6 +46,12 @@ var SubtestListAddView = Backbone.View.extend({
 				};			
 			break;
 
+			case "phoneme-page":
+				defaults = {
+					"pageType": "PhonemePage",
+					"words": {},
+				};			
+			break;
 		}
 		
 		var subtest = new Subtest(defaults);
