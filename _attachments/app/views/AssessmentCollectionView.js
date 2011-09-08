@@ -2,8 +2,6 @@ var AssessmentCollectionView = Backbone.View.extend({
 
 	el: "#assessment-list",
 	
-	template: loadTemplate("AssessmentMetaView.template.html"),
-
 	initialize: function() {
       this.model.bind('add', this.addOne, this);
       this.model.bind('change', this.render, this);

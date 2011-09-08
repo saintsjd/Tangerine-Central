@@ -2,19 +2,21 @@ var SubtestListCollectionView = Backbone.View.extend({
 
 	el: "#subtests",
 	
-	template: loadTemplate("SubtestListCollectionView.template.html"),
-
 	initialize: function() {
-      this.model.bind('add', this.render, this);
-      this.model.bind('reset', this.render, this);
+      this.model.bind('add', this.addOne, this);
+      this.model.bind('reset', this.reset, this);
     },
 
-
-	render: function() {
-      //$(this.el).html(this.template(this.model.toJSON()));
-	//console.log(this.model.get("urlPathsForPages"));
-	console.log(this.model.length);
-      return this;
+	reset: function() {
+		//this.$(this.el).listview("refresh");
+		$(this.el).empty();
+      	return this;
     },
+
+	addOne: function(subtest) {
+		var view = new SubtestMetaView({model: subtest});
+    	this.$(this.el).prepend(view.render().el);
+    	//this.render();
+	},
         
 });

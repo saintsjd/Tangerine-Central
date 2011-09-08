@@ -1,13 +1,14 @@
-var AssessmentMetaView = Backbone.View.extend({
+var SubtestMetaView = Backbone.View.extend({
 
 	tagName: "li",
 	
-	template: loadTemplate("AssessmentMetaView.template.html"),
+	template: loadTemplate("SubtestMetaView.template.html"),
 
 	initialize: function() {
       this.model.bind('change', this.render, this);
       //TODO this.model.bind('destroy', this.remove, this);
     },
+
 
 	render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
@@ -19,17 +20,18 @@ var AssessmentMetaView = Backbone.View.extend({
     },
 
 	events: {
-      "click a": "switchActiveAssessment"
+      "click a": "switchActiveSubtest"
     },
     
-    switchActiveAssessment: function() {
-    	window.assessment.set({ _id: this.model.get("_id"), urlPathsForPages: undefined }, {silent: true} );
+    switchActiveSubtest: function() {
+    	/*window.assessment.set({ _id: this.model.get("_id"), urlPathsForPages: undefined }, {silent: true} );
     	window.assessment.fetch({
     		success:function(model){
     			//load in the subtests
 				window.subtests.fetchAll();
     		},
-    	});
+    	});*/
+    	console.log("switchActiveSubtest");
     	return true;
     }
     

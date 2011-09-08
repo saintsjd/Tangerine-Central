@@ -14,10 +14,11 @@ var SubtestCollection = Backbone.Collection.extend({
 
 		//remove all the subtests currently in the collection
 		thisCollection.reset();
-
+		var subtests = [];
 		_.each( window.assessment.get("urlPathsForPages"), function(subtestId) {
 			var subtest = new Subtest({_id: subtestId });
 			subtest.fetch({
+				silent:true,
 				success: function(model,response){
 					thisCollection.add(model);
 				},
