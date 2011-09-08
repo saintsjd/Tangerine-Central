@@ -8,10 +8,13 @@ var SubtestFormView = Backbone.View.extend({
   
   render: function() {
     var type = this.model.get("pageType");
-    console.log(type);
+    
+    //this.editView.events = {};
+    
     switch( type ) {
     	case "TextPage":
     		this.template = loadTemplate("TextPageEdit.template.html");
+    		this.events = { "click button:contains('Save')" : "saveTextPage" }
     	break;
     	
     	case "ToggleGridWithTimer":
@@ -20,11 +23,15 @@ var SubtestFormView = Backbone.View.extend({
     
     }
 
+	this.delegateEvents();
    	$(this.el).html(this.template(this.model.toJSON()));
-
     
     return this;
-  }
+  },
   
+  
+  saveTextPage: function() {
+  	this.model.set({"content": this.$("textarea").val()}).save();
+  },
            
 });
