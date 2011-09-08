@@ -32,6 +32,13 @@ var SubtestListAddView = Backbone.View.extend({
 				};			
 			break;
 
+			case "consent-page":
+				defaults = {
+					"pageType": "ConsentPage",
+					"content": "",
+				};			
+			break;
+
 		}
 		
 		var subtest = new Subtest(defaults);

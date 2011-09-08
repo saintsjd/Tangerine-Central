@@ -31,6 +31,10 @@ var SubtestFormView = Backbone.View.extend({
   			}; 	
     	break;
 
+    	case "ConsentPage":
+    		this.template = loadTemplate("TextPageEdit.template.html");
+    		this.events = { "click button:contains('Save')" : "saveTextPage" }
+    	break;
     
     }
 
