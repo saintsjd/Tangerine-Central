@@ -39,6 +39,13 @@ var SubtestListAddView = Backbone.View.extend({
 				};			
 			break;
 
+			case "student-information-page":
+				defaults = {
+					"pageType": "StudentInformationPage",
+					"radioButtons": {},
+				};			
+			break;
+
 		}
 		
 		var subtest = new Subtest(defaults);

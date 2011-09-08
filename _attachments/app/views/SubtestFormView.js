@@ -12,7 +12,7 @@ var SubtestFormView = Backbone.View.extend({
     switch( type ) {
     	case "TextPage":
     		this.template = loadTemplate("TextPageEdit.template.html");
-    		this.events = { "click button:contains('Save')" : "saveTextPage" }
+    		this.events = { "click button:contains('Save')" : "saveTextPage" };
     	break;
     	
     	case "ToggleGridWithTimer":
@@ -33,9 +33,17 @@ var SubtestFormView = Backbone.View.extend({
 
     	case "ConsentPage":
     		this.template = loadTemplate("TextPageEdit.template.html");
-    		this.events = { "click button:contains('Save')" : "saveTextPage" }
+    		this.events = { "click button:contains('Save')" : "saveTextPage" };
     	break;
     
+    	case "StudentInformationPage":
+    		this.template = loadTemplate("StudentInformationPageEdit.template.html");
+    		this.events = {
+    			"click button:contains('Save')" : "saveStudentInformationPage",
+		    	"click button:contains('Add')" : "addStudentInformationPage",
+  			};
+    	break;
+
     }
 
 	this.delegateEvents();
@@ -98,5 +106,32 @@ var SubtestFormView = Backbone.View.extend({
   	});
     this.model.set({"schools": schools }).save();
   },
+ 
+ 
+  saveStudentInformationPage: function() {
+  	var radioButtons = new Array();
+ 	this.$("ol li").each(function( index, value ){
+ 		var radioButton = {};
+ 		radioButton.label = $(value).find('input[name="label"]').val();
+		radioButton.options = new Array();
+		//TODO add .type and .name
+		
+		$.each( $(value).find("textarea").val().split("\n"), function( idx, option ) { 
+	  		radioButton.options.push(option);
+  		});		
+
+		if( radioButton.label != "" )
+		radioButtons.push(radioButton);
+ 	});
+
+	this.model.set({"radioButtons":  radioButtons } ).save();
+  },
+
+  addStudentInformationPage: function() {
+ 	var template = loadTemplate("NewRadioButtonForm.template.html");
+ 	this.$("ol").append(template());
+  },
+ 
+ 
            
 });
