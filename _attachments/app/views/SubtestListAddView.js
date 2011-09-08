@@ -52,6 +52,13 @@ var SubtestListAddView = Backbone.View.extend({
 					"words": {},
 				};			
 			break;
+
+			case "interview":
+				defaults = {
+					"pageType": "Interview",
+					"radioButtons": {},
+				};			
+			break;
 		}
 		
 		var subtest = new Subtest(defaults);

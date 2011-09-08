@@ -52,6 +52,14 @@ var SubtestFormView = Backbone.View.extend({
 			};
     	break;
 
+    	case "Interview":
+    		this.template = loadTemplate("InterviewEdit.template.html");
+    		this.events = {
+				"click button:contains('Save')" : "saveInterview",
+				"click button:contains('Add')" : "addInterview",
+			};
+    	break;
+
 
     }
 
@@ -164,5 +172,29 @@ var SubtestFormView = Backbone.View.extend({
  	var template = loadTemplate("NewPhonemeForm.template.html");
  	this.$("ol").append(template());
   }, 
+
+
+  saveInterview: function() {
+  	var radioButtons = new Array();
+ 	this.$("ol li").each(function( index, value ){
+ 		var question = {};
+ 		question.label = $(value).find('input[name="label"]').val();
+		question.options = new Array();
+		
+		$.each( $(value).find("textarea").val().split("\n"), function( idx, option ) { 
+			if( option != "" )
+		  		question.options.push(option);
+  		});		
+
+		if( question.label != "" )
+			radioButtons.push(question);
+ 	});
+	this.model.set({"radioButtons":  radioButtons } ).save();
+  },
+
+  addInterview: function() {
+ 	var template = loadTemplate("NewRadioButtonForm.template.html");
+ 	this.$("ol").append(template());
+  },
            
 });
