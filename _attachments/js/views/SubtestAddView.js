@@ -3,63 +3,70 @@ var SubtestAddView = Backbone.View.extend({
 	el: "#subtest-list #add-subtest",
 	
 	events: {
-		"click li a"  : "addNewSubtest",
+		"change"  : "addNewSubtest",
 	},
 
 	addNewSubtest: function(e){
-		var whichButton = $( e.target ).attr("id");
+	
+		var whichButton = $(e.target).val();
 		
 		var defaults = {};
 		switch( whichButton ) {
-			case "new-text-page":
+			case "TextPage":
 				defaults = {
 					"pageType": "TextPage",
 					"content": "",
 				};
 			break;
 
-			case "new-toggle-grid-with-timer":
+			case "ToggleGridWithTimer":
 				defaults = {
 					"pageType": "ToggleGridWithTimer",
 					"letters": [],				
 				};			
 			break;
 
-			case "school-page":
+			case "SchoolPage":
 				defaults = {
 					"pageType": "SchoolPage",
 					"schools": [],				
 				};			
 			break;
 
-			case "consent-page":
+			case "ConsentPage":
 				defaults = {
 					"pageType": "ConsentPage",
 					"content": "",
 				};			
 			break;
 
-			case "student-information-page":
+			case "StudentInformationPage":
 				defaults = {
 					"pageType": "StudentInformationPage",
 					"radioButtons": {},
 				};			
 			break;
 
-			case "phoneme-page":
+			case "PhonemePage":
 				defaults = {
 					"pageType": "PhonemePage",
 					"words": {},
 				};			
 			break;
 
-			case "interview":
+			case "Interview":
 				defaults = {
 					"pageType": "Interview",
 					"radioButtons": {},
 				};			
 			break;
+			
+			default:
+				return; //if no option is selected them return
+			break;
 		}
+		
+		$(e.target).val("--");
 		
 		var subtest = new Subtest(defaults);
 		subtest.save({},{

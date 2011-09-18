@@ -77,16 +77,20 @@
 			<h1>Editing: <span>Assessment Name</span></h1>
 		</div> 
 		<div data-role="content">
-			<h2>Add a subtest</h2>
-			<ul id="add-subtest" data-role="listview" data-inset="true">
-				<li><a href="#" id="new-text-page">Text Page</a></li>
-				<li><a href="#" id="new-toggle-grid-with-timer">Toggle Grid with Timer</a></li>
-				<li><a href="#" id="school-page">School Page</a></li>
-				<li><a href="#" id="consent-page">Consent Page</a></li>
-				<li><a href="#" id="student-information-page">Student Information Page</a></li>
-				<li><a href="#" id="phoneme-page">Phoneme Page</a></li>
-				<li><a href="#" id="interview">Interview</a></li>
-			</ul>
+			<div data-role="fieldcontain">
+				<label for="add-subtest" class="select">Add a Subtest:</label>
+				<select name="add-subtest" id="add-subtest">
+					<option value="--">-- Choose option --</option>
+					<option value="TextPage">Text Page</option>
+					<option value="ToggleGridWithTimer">Toggle Grid with Timer</option>
+					<option value="SchoolPage">School Page</option>
+					<option value="ConsentPage">Consent Page</option>
+					<option value="StudentInformationPage">Student Information Page</option>
+					<option value="PhonemePage">Phoneme Page</option>
+					<option value="Interview">Interview</option>
+				</select>
+			</div>			
+			
 			<h2>My EGRA (click to edit a subtest)</h2>
 			<ul data-role="listview" data-inset="true" id="subtests">
 			</ul>
