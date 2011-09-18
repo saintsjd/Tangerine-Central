@@ -15,9 +15,10 @@ $(function(){
 	var assessmentCollectionView = new AssessmentCollectionView({model:window.assessments});
 	//var debug = new Debug( {model: window.assessment, el: $("#debug")} );
 	var assessmentform = new AssessmentFormView({model: window.assessment, el: $('#assessment-form [data-role="content"]') });
+	var subtestListCollectionView = new SubtestCollectionView({model:window.subtests});
+
 	//var subtestListHeading = new SubtestListHeadingView({model:window.assessment});
 	//var subtestListAdd = new SubtestListAddView();
-	//var subtestListCollectionView = new SubtestListCollectionView({model:window.subtests});
 	//var subtestFormView = new SubtestFormView( {model: window.subtest} );
 	
 	//force the metaForm to render... this is for testing only
