@@ -14,7 +14,7 @@ $(function(){
 	//Views
 	var assessmentCollectionView = new AssessmentCollectionView({model:window.assessments});
 	//var debug = new Debug( {model: window.assessment, el: $("#debug")} );
-	//var metaform = new AssessmentMetaForm({model: window.assessment, el: $('#assessment-meta-form [data-role="content"]') });
+	var assessmentform = new AssessmentFormView({model: window.assessment, el: $('#assessment-form [data-role="content"]') });
 	//var subtestListHeading = new SubtestListHeadingView({model:window.assessment});
 	//var subtestListAdd = new SubtestListAddView();
 	//var subtestListCollectionView = new SubtestListCollectionView({model:window.subtests});
