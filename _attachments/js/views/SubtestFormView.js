@@ -18,9 +18,9 @@ var SubtestFormView = Backbone.View.extend({
     	case "ToggleGridWithTimer":
     		this.template = loadTemplate("subtests/ToggleGridWithTimer.template.html");   
     		this.events = {
-    			"click button:contains('Sort')" : "sortToggleGridWithTimer",
-    			"click button:contains('Shuffle')" : "shuffleToggleGridWithTimer",
-    			"click button:contains('Save')" : "saveToggleGridWithTimer",
+    			"click a:contains('Sort')" : "sortToggleGridWithTimer",
+    			"click a:contains('Shuffle')" : "shuffleToggleGridWithTimer",
+    			"click a:contains('Save')" : "saveToggleGridWithTimer",
   			}; 	
     	break;
 
