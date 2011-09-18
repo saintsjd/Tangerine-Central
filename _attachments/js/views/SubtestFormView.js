@@ -55,8 +55,8 @@ var SubtestFormView = Backbone.View.extend({
     	case "Interview":
     		this.template = loadTemplate("subtests/Interview.template.html");
     		this.events = {
-				"click button:contains('Save')" : "saveInterview",
-				"click button:contains('Add')" : "addInterview",
+				"click a:contains('Save')" : "saveInterview",
+				"click a:contains('Add')" : "addInterview",
 			};
     	break;
 
