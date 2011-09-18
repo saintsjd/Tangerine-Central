@@ -18,7 +18,7 @@ var AssessmentCollection = Backbone.Collection.extend({
 		  	$.each(result.rows, function(key,row){
 		  		var a = new Assessment( {_id:row.id, updated:row.key, name: row.value} );
 		  		a.fetch({silent:true});
-				var view = new AssessmentMetaView({model: a});
+				var view = new AssessmentItemView({model: a});
 //		  		$("#assessment-list").append(view.render().el);
 		  		thisCollection.add(a);
 		  	});
