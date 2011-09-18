@@ -5,7 +5,7 @@ var AssessmentCollectionView = Backbone.View.extend({
 	initialize: function() {
       this.model.bind('add', this.addOne, this);
       this.model.bind('change', this.render, this);
-      //TODO this.model.bind('destroy', this.remove, this);
+      this.model.bind('remove', this.removeOne, this);
     },
 
 
@@ -19,6 +19,13 @@ var AssessmentCollectionView = Backbone.View.extend({
     	this.$(this.el).prepend(view.render().el);
     	
     	this.render();
+	},
+
+	removeOne: function(model) {
+		//remove the li from the list
+	   	this.$(this.el);
+		this.$(this.el).find("#"+model.get("_id")).closest("li").remove();
+		this.render();
 	},
     
 });

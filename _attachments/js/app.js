@@ -14,7 +14,8 @@ $(function(){
 	//Views
 	var assessmentCollectionView = new AssessmentCollectionView({model:window.assessments});
 	//var debug = new Debug( {model: window.assessment, el: $("#debug")} );
-	var assessmentform = new AssessmentFormView({model: window.assessment, el: $('#assessment-form [data-role="content"]') });
+	var assessmentform = new AssessmentFormView({model: window.assessment, el: $('#assessment-edit-form') });
+	var assessmentDelete = new AssessmentDeleteView( );
 	var subtestCollection = new SubtestCollectionView({model:window.subtests});
 	var subtestAdd = new SubtestAddView();
 	var subtestForm = new SubtestFormView( {model: window.subtest} );
