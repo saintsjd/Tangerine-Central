@@ -17,9 +17,9 @@ $(function(){
 	var assessmentform = new AssessmentFormView({model: window.assessment, el: $('#assessment-form [data-role="content"]') });
 	var subtestCollection = new SubtestCollectionView({model:window.subtests});
 	var subtestAdd = new SubtestAddView();
+	var subtestForm = new SubtestFormView( {model: window.subtest} );
 
 	//var subtestListHeading = new SubtestListHeadingView({model:window.assessment});
-	//var subtestFormView = new SubtestFormView( {model: window.subtest} );
 	
 	//force the metaForm to render... this is for testing only
 	//window.assessment.change();

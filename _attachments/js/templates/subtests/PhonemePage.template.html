@@ -1,0 +1,37 @@
+<h1>{{_id}}</h1>
+<ol>
+{{#each words}}
+<li>
+	<label>Word:</label>
+	<input name="word" type="text" value="{{word}}" style='width:340px;' />
+	<br />
+	<label>Phonemes:</label>
+	<br />
+	<textarea style='width:340px;height:100px;'>{{#each phonemes}}{{this}}
+{{/each}}</textarea>	
+	<br />
+	<label>Number of Sounds:</label>
+	<input name="number-of-sounds" type="text" value="{{number-of-sounds}}" style='width:340px;' />
+	<br />
+	<button type='button' class="remove">Remove Phoneme</button>
+</li>
+{{/each}}
+</ol>
+<br />
+<button type='button'>Save</button>
+<button type='button'>Add</button>
+
+<script type="text/javascript">
+	/**
+	 * Remove button functionality
+	 *  TODO: figure out why this will not work from the InterviewEditView.js file
+	 */
+	$(function(){
+		$(".remove").click(function(e){
+			//var answer = confirm("Delete question? (" + )");
+			var answer = confirm( "Are you sure you want to delete Phoneme: '" + $(this).siblings("input").val().substring(0,20) + "'" );
+			if( answer )
+				$(this).closest("li").remove();
+		});
+	});
+</script>
