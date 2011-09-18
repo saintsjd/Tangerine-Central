@@ -1,30 +1,31 @@
-<h1>{{_id}}</h1>
+<h1>Edit Student Information Page</h1>
 <ol>
 {{#each radioButtons}}
 <li>
-	<label>Label:</label>
+	<label>Question:</label>
 	<input name="label" type="text" value="{{label}}" style='width:340px;' />
 	<br />
-	<label>Options:</label>
+	<label>Answers (one per line):</label>
 	<br />
 	<textarea style='width:340px;height:100px;'>{{#each options}}{{this}}
 {{/each}}</textarea>	
 	<br />
-	<button type='button' class="remove">Remove Question</button>
+	<a href="#" data-role="button" class="remove">Remove Question</a>
 </li>
 {{/each}}
 </ol>
 <br />
-<button type='button'>Save</button>
-<button type='button'>Add</button>
+
+<a href="#" data-role="button">Add Question</a>
+<a href="#subtest-list" data-role="button">Save</a>
 
 <script type="text/javascript">
 	/**
 	 * Remove button functionality
-	 *  TODO: figure out why this will not work from the InterviewEditView.js file
 	 */
 	$(function(){
-		$(".remove").click(function(e){
+		$(".remove").live("click", function(e){
+			console.log("asdf");
 			//var answer = confirm("Delete question? (" + )");
 			var answer = confirm( "Are you sure you want to delete question: '" + $(this).siblings("input").val().substring(0,20) + "'" );
 			if( answer )

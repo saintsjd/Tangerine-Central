@@ -43,7 +43,14 @@ var SubtestAddView = Backbone.View.extend({
 			case "StudentInformationPage":
 				defaults = {
 					"pageType": "StudentInformationPage",
-					"radioButtons": {},
+					"radioButtons": [
+						{
+						  "label": "",
+						  "name": "",
+						  "type": "horizontal",
+						  "options": []
+						},					
+					],
 				};			
 			break;
 

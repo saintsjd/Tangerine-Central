@@ -33,14 +33,14 @@ var SubtestFormView = Backbone.View.extend({
 
     	case "ConsentPage":
     		this.template = loadTemplate("subtests/TextPage.template.html");
-    		this.events = { "click button:contains('Save')" : "saveTextPage" };
+    		this.events = { "click a:contains('Save')" : "saveTextPage" };
     	break;
     
     	case "StudentInformationPage":
     		this.template = loadTemplate("subtests/StudentInformationPage.template.html");
     		this.events = {
-    			"click button:contains('Save')" : "saveStudentInformationPage",
-		    	"click button:contains('Add')" : "addStudentInformationPage",
+    			"click a:contains('Save')" : "saveStudentInformationPage",
+		    	"click a:contains('Add')" : "addStudentInformationPage",
   			};
     	break;
 
@@ -148,6 +148,7 @@ var SubtestFormView = Backbone.View.extend({
   addStudentInformationPage: function() {
  	var template = loadTemplate("subtests/RadioButtonForm.template.html");
  	this.$("ol").append(template());
+ 	$(this.el).trigger("create");
   },
  
   savePhonemePage: function() {
