@@ -47,8 +47,8 @@ var SubtestFormView = Backbone.View.extend({
     	case "PhonemePage":
     		this.template = loadTemplate("subtests/PhonemePage.template.html");
     		this.events = {
-				"click button:contains('Save')" : "savePhonemePage",
-				"click button:contains('Add')" : "addPhonemePage",
+				"click a:contains('Save')" : "savePhonemePage",
+				"click a:contains('Add')" : "addPhonemePage",
 			};
     	break;
 
@@ -173,6 +173,7 @@ var SubtestFormView = Backbone.View.extend({
   addPhonemePage: function() {
  	var template = loadTemplate("subtests/PhonemeForm.template.html");
  	this.$("ol").append(template());
+ 	$(this.el).trigger("create");
   }, 
 
 
@@ -197,6 +198,7 @@ var SubtestFormView = Backbone.View.extend({
   addInterview: function() {
  	var template = loadTemplate("subtests/RadioButtonForm.template.html");
  	this.$("ol").append(template());
+ 	$(this.el).trigger("create");
   },
            
 });

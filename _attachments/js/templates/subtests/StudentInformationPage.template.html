@@ -10,7 +10,7 @@
 	<textarea style='width:340px;height:100px;'>{{#each options}}{{this}}
 {{/each}}</textarea>	
 	<br />
-	<a href="#" data-role="button" class="remove">Remove Question</a>
+	<a href="#" data-role="button" class="removeRadio">Remove Question</a>
 </li>
 {{/each}}
 </ol>
@@ -24,8 +24,7 @@
 	 * Remove button functionality
 	 */
 	$(function(){
-		$(".remove").live("click", function(e){
-			console.log("asdf");
+		$(".removeRadio").live("click", function(e){
 			//var answer = confirm("Delete question? (" + )");
 			var answer = confirm( "Are you sure you want to delete question: '" + $(this).siblings("input").val().substring(0,20) + "'" );
 			if( answer )

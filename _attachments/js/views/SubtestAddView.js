@@ -57,14 +57,27 @@ var SubtestAddView = Backbone.View.extend({
 			case "PhonemePage":
 				defaults = {
 					"pageType": "PhonemePage",
-					"words": {},
+					"words": [
+						{
+						  "word": "",
+						  "phonemes": [],
+						  "number-of-sounds": ""
+						},										
+					],
 				};			
 			break;
 
 			case "Interview":
 				defaults = {
 					"pageType": "Interview",
-					"radioButtons": {},
+					"radioButtons": [
+						{
+						  "label": "",
+						  "name": "",
+						  "type": "horizontal",
+						  "options": []
+						},					
+					],
 				};			
 			break;
 			
