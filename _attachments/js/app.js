@@ -18,6 +18,7 @@ $(function(){
 	var subtestCollection = new SubtestCollectionView({model:window.subtests});
 	var subtestAdd = new SubtestAddView();
 	var subtestForm = new SubtestFormView( {model: window.subtest} );
+	var subtestDelete = new SubtestDeleteView( );
 
 	//var subtestListHeading = new SubtestListHeadingView({model:window.assessment});
 	

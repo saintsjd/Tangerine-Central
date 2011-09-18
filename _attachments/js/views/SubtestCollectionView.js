@@ -5,6 +5,7 @@ var SubtestCollectionView = Backbone.View.extend({
 	initialize: function() {
       this.model.bind('add', this.addOne, this);
       this.model.bind('reset', this.reset, this);
+      this.model.bind('remove', this.removeOne, this);
     },
 
 	reset: function() {
@@ -28,6 +29,14 @@ var SubtestCollectionView = Backbone.View.extend({
     		this.$(this.el).trigger("create");
     	}
 	
-	}
+	},
+
+	removeOne: function(model) {
+		//remove the li from the list
+	   	this.$(this.el);
+		this.$(this.el).find("#"+model.get("_id")).closest("li").remove();
+		this.render();
+	},
+
         
 });
