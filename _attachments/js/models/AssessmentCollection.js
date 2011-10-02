@@ -13,7 +13,7 @@ var AssessmentCollection = Backbone.Collection.extend({
 		var thisCollection = this;
 		
 		//TODO - get the hardcoded db name out of here. same with DDOC
-		$.couch.db("tangerine").view("tangerine-cloud" + "/assessment_ids", {
+		$.couch.db(Backbone.couch_connector.config.db_name).view("tangerine-cloud" + "/assessment_ids", {
 		  success: function(result){
 		  	$.each(result.rows, function(key,row){
 		  		var a = new Assessment( {_id:row.id, updated:row.key, name: row.value} );

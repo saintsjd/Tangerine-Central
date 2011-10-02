@@ -1,6 +1,6 @@
 /** Configure the database **/
-Backbone.couch_connector.config.db_name = "tangerine";
-Backbone.couch_connector.config.ddoc_name = "central";
+Backbone.couch_connector.config.db_name = "egra";
+Backbone.couch_connector.config.ddoc_name = "tangerine-cloud";
 Backbone.couch_connector.config.global_changes = false;
 
 // This allows us to have separate template files
